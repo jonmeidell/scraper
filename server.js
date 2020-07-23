@@ -38,6 +38,6 @@ require('./routes/webRoutes')(app);
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("Do you smell onions on " + PORT + "?");
-  });
+});
