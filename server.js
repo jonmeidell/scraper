@@ -39,5 +39,25 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper"
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 
 app.listen(PORT, function () {
-    console.log("Do you smell onions on " + PORT + "?");
+    console.log("Now you're playing with power on " + PORT);
 });
+
+// axios.get("https://www.nintendo.com/").then(function (response) {
+
+//   const $ = cheerio.load(response.data);
+
+//   var results = [];
+
+//   $("game-tile").each(function (i, element) {
+
+//     const title = $(element).attr("image-alt");
+//     const link = $(element).attr("href");
+
+//     results.push({
+//       title: title,
+//       link: link
+//     });
+//   });
+
+//   console.log(results);
+// });
