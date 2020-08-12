@@ -1,5 +1,5 @@
 {
-  "name": "cheerio",
+  "name": "scraper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonmeidell/cheerio.git"
+    "url": "git+https://github.com/jonmeidell/scraper.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonmeidell/cheerio/issues"
+    "url": "https://github.com/jonmeidell/scraper/issues"
   },
-  "homepage": "https://github.com/jonmeidell/cheerio#readme",
+  "homepage": "https://github.com/jonmeidell/scraper#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.5",
-    "mongoose": "^5.9.21"
+    "got": "^11.5.2",
+    "mongoose": "^5.9.21",
+    "morgan": "^1.10.0"
   }
 }

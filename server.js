@@ -4,10 +4,12 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const cheerio = require("cheerio");
 const axios = require("axios");
+const got = require("got");
+const path = require("path");
 
-const db = require("./models");
+require("./models/Headlines.js");
 
-const PORT = process.env.PORT || 3307;
+const PORT = process.env.PORT || 3308;
 const app = express();
 
 app.use(logger("dev"));
@@ -30,10 +32,9 @@ app.engine('hbs', expresshbs({
 }));
 app.set('view engine', 'hbs');
 
-axios.defaults.baseURL = process.env.baseURL || "http://localhost:3307";
+axios.defaults.baseURL = process.env.baseURL || "http://localhost:3308";
 
-require('./routes/apiRoutes')(app);
-require('./routes/webRoutes')(app);
+app.use(require("./routes"));
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
