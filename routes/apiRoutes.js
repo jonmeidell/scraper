@@ -43,23 +43,3 @@ router.get("/", (req, res) => {
 })
 
 module.exports = router;
-
-// axios.get("https://www.nintendo.com/").then(function (response) {
-
-//   const $ = cheerio.load(response.data);
-
-//   var results = [];
-
-//   $("game-tile").each(function (i, element) {
-
-//     const title = $(element).attr("image-alt");
-//     const link = $(element).attr("href");
-
-//     results.push({
-//       title: title,
-//       link: link
-//     });
-//   });
-
-//   console.log(results);
-// });
