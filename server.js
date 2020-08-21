@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.engine('handlebars', expresshbs({
-    extname: 'handlebars',
+app.engine('hbs', expresshbs({
+    extname: 'hbs',
     defaultLayout: 'main',
     layouts: path.join(__dirname, 'views/layouts'),
     partials: path.join(__dirname, 'views/partials'),
@@ -30,7 +30,7 @@ app.engine('handlebars', expresshbs({
         },
     },
 }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'hbs');
 app.get("/", (req, res) => {
     res.render("index")
 })
