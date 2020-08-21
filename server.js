@@ -31,9 +31,6 @@ app.engine('hbs', expresshbs({
     },
 }));
 app.set('view engine', 'hbs');
-app.get("/", (req, res) => {
-    res.render("index")
-})
 
 axios.defaults.baseURL = process.env.baseURL || "http://localhost:3308";
 
