@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.engine('hbs', expresshbs({
-    extname: 'hbs',
+app.engine('handlebars', expresshbs({
+    extname: 'handlebars',
     defaultLayout: 'main',
     layouts: path.join(__dirname, 'views/layouts'),
     partials: path.join(__dirname, 'views/partials'),
@@ -30,7 +30,10 @@ app.engine('hbs', expresshbs({
         },
     },
 }));
-app.set('view engine', 'hbs');
+app.set('view engine', 'handlebars');
+app.get("/", (req, res) => {
+    res.render("index")
+})
 
 axios.defaults.baseURL = process.env.baseURL || "http://localhost:3308";
 
@@ -40,5 +43,5 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper"
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 
 app.listen(PORT, function () {
-    console.log("Now you're playing with power on " + PORT);
+    console.log("Now you're playing with power on localhost:" + PORT);
 });
