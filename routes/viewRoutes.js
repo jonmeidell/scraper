@@ -4,7 +4,7 @@ const headline = require("../controllers/headline");
 const Headlines = mongoose.model("Headlines");
 
 router.get("/", (req, res) => {
-    Headlines.find().then(data => {
+    Headlines.find().lean().then(data => {
         console.log("data", data)
         let newsHeadlines = {
             articles: data
