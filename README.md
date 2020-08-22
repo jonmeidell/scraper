@@ -5,6 +5,7 @@
 ![Example1](https://jonmeidell.github.io/scraper/public/images/example-scraper.PNG)
 
 _**A site used to scrape articles from the www.nintendo.com website.**_
+</div>
 
 ### `Improvements to be made:`
 _Articles not loading on Heroku site._
