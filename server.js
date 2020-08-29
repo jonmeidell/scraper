@@ -37,7 +37,7 @@ axios.defaults.baseURL = process.env.baseURL || "http://localhost:3308";
 app.use(require("./routes"));
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 mongoose.connect("mongodb+srv://guest:guest@cluster0.oilft.mongodb.net/test?retryWrites=true&w=majority")
 
 app.listen(PORT, function () {
