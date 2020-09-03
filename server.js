@@ -7,8 +7,6 @@ const axios = require("axios");
 const got = require("got");
 const path = require("path");
 
-require("./models/Headlines.js");
-
 const PORT = process.env.PORT || 3308;
 const app = express();
 
