@@ -46,7 +46,7 @@ router.put("/saved", async (req, res) => {
 });
 
 router.get("/saved", async (req, res) => {
-    const titles = await db.title.find({ saved: true }).populate('comments');
+    const titles = await db.title.find({ saved: true });
     return res.status("200").send(titles);
 });
 
