@@ -38,6 +38,23 @@ router.get("/scrape", async (req, res) => {
     res.json(results);
 });
 
+router.put("/saved", async (req, res) => {
+    const title = await db.title.findOne({ _id: req.params.id });
+    title.favorite = !title.favorite;
+    await title.save();
+    return res.status("200").send(title);
+});
+
+router.get("/saved", async (req, res) => {
+    const titles = await db.title.find({ favorite: true }).populate('comments');
+    return res.status("200").send(titles);
+});
+
+router.delete("/saved", async (req, res) => {
+    const title = await db.title.deleteOne({ _id: req.params.id});
+    return res.json(title);
+});
+
 router.get("/", (req, res) => {
     res.sendStatus(200);
 })
