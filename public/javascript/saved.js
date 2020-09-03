@@ -75,54 +75,6 @@ $(document).ready(function () {
             }
         });
     }
-    function handleArticleNotes(event) {
-        const currentArticle = $(this)
-            .parents(".card")
-            .data();
-        $.get("/api/notes/" + currentArticle._id).then(function (data) {
-            const modalText = $("<div class='container-fluid text-center'>").append(
-                $("<h4>").text("Notes For Article: " + currentArticle._id),
-                $("<hr>"),
-                $("<ul class='list-group note-container'>"),
-                $("<textarea placeholder='New Note' rows='4' cols='60'>"),
-                $("<button class='btn btn-success save'>Save Note</button>")
-            );
-            bootbox.dialog({
-                message: modalText,
-                closeButton: true
-            });
-            const noteData = {
-                _id: currentArticle._id,
-                notes: data || []
-            };
-            $(".btn.save").data("article", noteData);
-            renderNotesList(noteData);
-        });
-    }
-
-    function handleNoteSave() {
-        const noteData;
-        const newNote = $(".bootbox-body textarea")
-            .val()
-            .trim();
-        if (newNote) {
-            noteData = { _headlineId: $(this).data("article")._id, noteText: newNote };
-            $.post("/api/notes", noteData).then(function () {
-                bootbox.hideAll();
-            });
-        }
-    }
-
-    function handleNoteDelete() {
-        const noteToDelete = $(this).data("_id");
-        $.ajax({
-            url: "/api/notes/" + noteToDelete,
-            method: "DELETE"
-        }).then(function () {
-            // When done, hide the modal
-            bootbox.hideAll();
-        });
-    }
 
     function clearSavedArticles() {
         $.get("api/clear")
