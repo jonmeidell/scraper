@@ -40,13 +40,13 @@ router.get("/scrape", async (req, res) => {
 
 router.put("/saved", async (req, res) => {
     const title = await db.title.findOne({ _id: req.params.id });
-    title.favorite = !title.favorite;
+    title.saved = !title.saved;
     await title.save();
     return res.status("200").send(title);
 });
 
 router.get("/saved", async (req, res) => {
-    const titles = await db.title.find({ favorite: true }).populate('comments');
+    const titles = await db.title.find({ saved: true }).populate('comments');
     return res.status("200").send(titles);
 });
 
