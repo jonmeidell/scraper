@@ -39,19 +39,19 @@ router.get("/scrape", async (req, res) => {
 });
 
 router.put("/saved", async (req, res) => {
-    const title = await db.title.findOne({ _id: req.params.id });
+    const title = await cheerio.title.findOne({ _id: req.params.id });
     title.saved = !title.saved;
     await title.save();
     return res.status("200").send(title);
 });
 
 router.get("/saved", async (req, res) => {
-    const titles = await db.title.find({ saved: true });
+    const titles = await cheerio.title.find({ saved: true });
     return res.status("200").send(titles);
 });
 
 router.delete("/saved", async (req, res) => {
-    const title = await db.title.deleteOne({ _id: req.params.id});
+    const title = await cheerio.title.deleteOne({ _id: req.params.id});
     return res.json(title);
 });
 
