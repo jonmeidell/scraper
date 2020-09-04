@@ -1,3 +1,5 @@
+const router = require("express").Router();
+
 $(document).ready(function () {
     const articleContainer = $(".article-container");
     $(document).on("click", ".btn.delete", deleteArticle);
@@ -84,3 +86,5 @@ $(document).ready(function () {
             });
     }
 });
+
+module.exports = router;
