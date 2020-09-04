@@ -1,4 +1,8 @@
 const router = require("express").Router();
+const cheerio = require("cheerio");
+const got = require("got");
+const mongoose = require("mongoose");
+const Headlines = mongoose.model("Headlines");
 
 $(document).ready(function () {
     const articleContainer = $(".article-container");
